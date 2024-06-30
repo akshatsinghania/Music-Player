@@ -23,7 +23,7 @@
         <img src="believer.jpg" class="song-img" />
         <h1>Believer</h1>
         <p>Imagine Dragons</p>
-        <audio controls id="song">
+        <audio id="song">
           <source src="believer_audio" type="audio/mpeg" />
         </audio>
         <input type="range" value="0" id="progress" />
@@ -59,7 +59,18 @@
       }
 
       if (song.play()) {
+        setInterval(() => {
+          progress.value = song.currentTime;
+        }, 500);
       }
+
+      progress.onchange = function () {
+        song.play();
+        song.currentTime = progress.value;
+
+        ctrlIcon.classList.add("fa-pause");
+        ctrlIcon.classList.remove("fa-play");
+      };
     </script>
   </body>
 </html>
