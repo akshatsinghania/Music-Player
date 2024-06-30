@@ -49,10 +49,16 @@
       function playPause() {
         if (ctrlIcon.classList.contains("fa-pause")) {
           song.pause();
-          ctrlIcon.classList.remove()
+          ctrlIcon.classList.remove("fa-pause");
+          ctrlIcon.classList.add("fa-play");
         } else {
-          song.play;
+          song.play();
+          ctrlIcon.classList.add("fa-pause");
+          ctrlIcon.classList.remove("fa-play");
         }
+      }
+
+      if (song.play()) {
       }
     </script>
   </body>
